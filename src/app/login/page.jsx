@@ -2,15 +2,17 @@
 import React,{ useState } from 'react'
 
 import Link from 'next/link'
-import { getProviders, signIn, useSession } from "next-auth"
-import { useRouter } from 'next/router'
+import { getProviders, signIn, useSession } from "next-auth/react"
+import { useRouter } from 'next/navigation'
 
 const Login = () => {
 
   const [email,setEmail]=useState("")
   const [password,setPassword]=useState("")
-  const session=useSession()
+  const session=useSession("")
   const router=useRouter()
+  
+  console.log(session.status)
   if(session.status==="loading"){
     return(<p>Loading</p>)
   }
@@ -31,7 +33,7 @@ const Login = () => {
             <h1>LinkSphere</h1>
         </div>
         <div>
-            <form>
+            <form onSubmit={handleLogin}>
               <div>
                 <label htmlFor='email'>Email</label>
                 <input type='email' id='email' required placeholder='Enter your Email here' onChange={(e)=>setEmail(e.target.value)} />
@@ -43,7 +45,7 @@ const Login = () => {
               </div>
             </form>
         </div>
-        <div>Don't have an account! <span> <Link href="/register">SignUp</Link></span></div>
+        <div>Don't have an account! <span> <Link href="/signup">SignUp</Link></span></div>
     </div>
   )
 }
