@@ -16,6 +16,7 @@ const handler=NextAuth({
                         email:credentials.email
                     })
                     console.log(credentials)
+                    console.log(user)
 
                     if(user){
                         const isPasswordCorrect=await bcrypt.compare(
@@ -25,8 +26,9 @@ const handler=NextAuth({
 
                         if(isPasswordCorrect){
                             console.log("new")
-                            console.log(user)
-                            return user;
+                            
+                            
+                            return user
                         }
                         else{
                             throw new Error("Wrong Credentials")
@@ -46,6 +48,16 @@ const handler=NextAuth({
             }
         })
     ],
+    callbacks: {
+        async jwt({ token }) {
+          return token
+        },
+        async session({session,token}){
+            session.user.id=token.sub
+            return session
+        }
+      },
+    
     pages:{
         error:"/login"
     }

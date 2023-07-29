@@ -28,7 +28,7 @@ const SignUp = () => {
       
 
       if(res.status===201){
-        router.push("/dashboard")
+        router.push("/login")
       }
 
     }
@@ -63,7 +63,7 @@ const SignUp = () => {
               </div>
             </form>
         </div>
-        <div>Already have an account! <span> <Link href="/register">Login</Link></span></div>
+        <div>Already have an account! <span> <Link href="/login">Login</Link></span></div>
     </div>
   )
 }
