@@ -2,6 +2,7 @@
 import React, { useState } from 'react'
 import { useSession } from "next-auth/react"
 import { useRouter } from "next/navigation"
+import Navbar from '@/components/navbar'
 
 const AddPost = () => {
   const session = useSession()
@@ -39,19 +40,30 @@ const AddPost = () => {
   }
   
   return (
-    <div>
-        Add Your Post
-        <form onSubmit={handleSubmit}>
-            <div>
-                {session.data.user.name}
+    <div className='flex flex-col'>
+       <Navbar name={session.data.user.name} />
+       <div className='text-center sm:text-4xl text-2xl text-purple-700 font-bold mt-2 sm:mt-6'>
+          Add Your Post
+        </div>
+        <div className='flex  bg-black justify-center'>
+          <div className='flex justify-center sm:w-6/12 md:px-1 sm:px-8 px-1  w-9/12 bg-gray-900 rounded-lg my-2 sm:my-8'>
+            
+            <form onSubmit={handleSubmit} className='flex flex-col my-10 py-4 sm:ms-1 ms-2'>
+                  
+                  <div className='my-2'><label htmlFor='content' className='my-2'>Enter Your content</label></div>
+                  <div ><textarea type='text' rows={10}  cols={40} placeholder='Enter your text here'  id="content" className='sm:w-full w-11/12 md:h-full h-3/4 cursor-text sm:my-2 my-1 rounded-md p-2' onChange={(e)=>setText(e.target.value)} /></div>
+                  <div><button className="bg-blue-800 rounded-lg py-2 px-4 sm:my-8 my-1" type='submit'>Add</button></div>
 
-            </div>
-            <label htmlFor='content'>Enter Your content</label>
-            <textarea type='text' id="content" onChange={(e)=>setText(e.target.value)} />
-            <button type='submit'>Add</button>
-
-        </form>
-    </div>
+      
+            </form>
+          
+          </div>
+          
+            
+      
+        </div>
+        
+        </div>
   )
 }
 

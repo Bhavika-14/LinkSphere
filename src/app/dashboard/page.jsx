@@ -4,6 +4,8 @@ import useSWR from "swr"
 import { useSession,signOut } from "next-auth/react"
 import { useRouter } from "next/navigation"
 import Link from 'next/link'
+import Navbar from '@/components/navbar'
+import Post from '@/components/post'
 
 
 const Dashboard = () => {
@@ -28,13 +30,20 @@ const Dashboard = () => {
   if(session.status==="authenticated"){
     return (
       <div>
-        {session.data.user.name} {session.data.user.email}
+        <Navbar name={session.data.user.name} id={session.data.user.id} />
+        
 
-        <Link href="/dashboard/post"><button>Add Post</button></Link>
-        <button onClick={
-          signOut
-          
-        }>Logout</button>
+        
+        <div className='flex bg-black justify-center my-4'>
+          <div className='flex flex-col sm:w-6/12 w-11/12'>
+            {data && data.map((post)=>{
+              return(
+                <Post post={post} />
+              )
+            })}
+  
+          </div>
+        </div>
       </div>
   
     )

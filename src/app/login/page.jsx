@@ -28,24 +28,32 @@ const Login = () => {
 
   }
   return (
-    <div className='container m-5'>
-        <div>
-            <h1>LinkSphere</h1>
+    <div className=''>
+        <div className='py-8'>
+            <h1 className='flex justify-center shrink sm:text-6xl text-4xl  font-bold text-purple-700'>LinkSphere</h1>
         </div>
-        <div>
-            <form onSubmit={handleLogin}>
-              <div>
-                <label htmlFor='email'>Email</label>
-                <input type='email' id='email' required placeholder='Enter your Email here' onChange={(e)=>setEmail(e.target.value)} />
+        <div className='flex justify-center items-center mt-10'>
+            <form className='flex flex-col align-center content-center item-center justify-center bg-gray-900 py-8 sm:px-16 px-8 items-center rounded-xl'  onSubmit={handleLogin}>
+              
+              
+              <div className='flex flex-col my-2'>
+                <label for='email' className='py-2'>Email</label>
+                <input type='email' className='p-2 rounded-md' id='email' required placeholder='Enter your Email here' onChange={(e)=>setEmail(e.target.value)} />
               </div>
-              <div>
-                <label htmlFor='password'>Password</label>
-                <input type='password' id='password' required placeholder='Enter your Password here' onChange={(e)=>setPassword(e.target.value)} />
-                <button type='submit'>Login</button>
+              <div className='flex flex-col my-2'>
+                <label for='password' className='py-2'>Password</label>
+                <input type='password' className='p-2 rounded-md' id='password' required placeholder='Enter your Password here' onChange={(e)=>setPassword(e.target.value)} />
+                
               </div>
+              
+              <div className=' bg-purple-700 rounded-2xl font-bold my-4 text-center' >
+                <button type='submit' className='py-4 px-8 text-center'>Login</button>
+              </div>
+              <div className=''>Don't have an account! <span className='text-blue-500'> <Link href="/signup">Signup</Link></span></div>
             </form>
         </div>
-        <div>Don't have an account! <span> <Link href="/signup">SignUp</Link></span></div>
+       
+        
     </div>
   )
 }
