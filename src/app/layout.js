@@ -1,6 +1,7 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
 import AuthProvider from '@/components/AuthProvider/AuthProvider'
+import { UserProvider } from '@/components/user'
 import Head from "next/head"
 
 
@@ -18,9 +19,11 @@ export default function RootLayout({ children }) {
       
       <body className={inter.className}>
         <AuthProvider>
+          <UserProvider>
       
 
         {children}
+        </UserProvider>
         </AuthProvider>
       </body>
     </html>

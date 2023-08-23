@@ -3,6 +3,9 @@
 import React,{ useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
+import { doc, setDoc } from "firebase/firestore";
+import { db } from "@/app/firebase"
+require('dotenv').config()
 
 const SignUp = () => {
   const [name,setName]=useState("")
@@ -18,17 +21,43 @@ const SignUp = () => {
       name:name,email:email,password:password
     }
     try{
-      const res=await fetch("/api/auth/signup",{
+      const response=await fetch("/api/auth/signup",{
         method:"POST",
         headers:{
           "Content-Type":"application/json"
         },
         body: JSON.stringify(data) 
       })
+
+      
+      
       
 
-      if(res.status===201){
+      if(response.status===201){
+        
+        const res=await response.json()
+        console.log("res",res)
+        console.log("db",db)
+        console.log("id",res.id)
+        
+        
+        try{
+        
+        await setDoc(doc(db,"users",res.id), {
+          name: res.name,
+          email: res.email,
+          id: res.id
+          
+        });
+        console.log("completed")}
+        catch(err){
+          console.log(err)
+        }
+
         router.push("/login")
+        
+
+        
       }
 
     }
@@ -49,15 +78,15 @@ const SignUp = () => {
                 {error && "Something Went Wrong"}
               </div>
               <div className='flex flex-col my-2'>
-                <label for='name' className='py-2'>Name</label>
+                <label htmlFor='name' className='py-2'>Name</label>
                 <input type='text'className='p-2 rounded-md' id='text' required placeholder='Enter your Name here' onChange={(e)=>setName(e.target.value)} />
               </div>
               <div className='flex flex-col my-2'>
-                <label for='email' className='py-2'>Email</label>
+                <label htmlFor='email' className='py-2'>Email</label>
                 <input type='email' className='p-2 rounded-md' id='email' required placeholder='Enter your Email here' onChange={(e)=>setEmail(e.target.value)} />
               </div>
               <div className='flex flex-col my-2'>
-                <label for='password' className='py-2'>Password</label>
+                <label htmlFor='password' className='py-2'>Password</label>
                 <input type='password' className='p-2 rounded-md' id='password' required placeholder='Enter your Password here' onChange={(e)=>setPassword(e.target.value)} />
                 
               </div>

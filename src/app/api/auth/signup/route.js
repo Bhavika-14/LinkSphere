@@ -21,8 +21,9 @@ export const POST=async(request)=>{
 
     try{
         await newUser.save()
+        const new_user={name:newUser.name,email:newUser.email,id:newUser._id}
         console.log("new user",newUser)
-        return new NextResponse("User has been created",{ status:201 })
+        return new NextResponse(JSON.stringify(new_user),{ status:201 })
 
 
     }
