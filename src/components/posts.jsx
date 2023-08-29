@@ -41,7 +41,7 @@ const Posts = ({data,id}) => {
                 const user_liked=liked.includes(post._id)
                 console.log(user_liked)
               return(
-                <Post post={post} liked={user_liked} />
+                <Post post={post} liked={user_liked} id={id} />
               )
             })}
   

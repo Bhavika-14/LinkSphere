@@ -3,7 +3,7 @@ import React,{ useState } from 'react'
 import Comments from './comments'
 import Link from 'next/link'
 
-const Post = ({post,liked}) => {
+const Post = ({post,liked,id}) => {
   let [showComments,setShowComments]=useState(false)
   let [postLiked,setPostLiked]=useState(liked)
   let [likes,setLikes]=useState(post.likes)
@@ -11,6 +11,31 @@ const Post = ({post,liked}) => {
   const handleLike=async()=>{
     setPostLiked(true)
     setLikes(likes+1)
+
+    try{
+      const response=await fetch(`/api/like/${id}`,{
+        method:"PUT",
+        headers:{
+          "Content-Type":"application/json"
+        },
+        body: JSON.stringify({post_id:post._id}) 
+      })
+
+      
+      
+      
+
+      if(response.status===201){
+        
+        const res=await response.json()
+        console.log("res",res)
+      }
+    }
+    catch(err){
+      console.log(err)
+    }
+
+
 
   }
 
