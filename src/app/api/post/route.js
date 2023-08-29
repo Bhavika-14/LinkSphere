@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import connect from "@/utils/db"
 import Post from "@/models/post"
+import Likes from "@/models/likes"
 
 export const GET = async(request)=>{
     const url = new URL(request.url)
@@ -8,7 +9,21 @@ export const GET = async(request)=>{
 
     try{
         await connect();
-        const posts= await Post.find()
+        const postsres= await Post.find()
+        
+
+        const likes=await Likes.findOne({user_id:id}).exec()
+            console.log("likes",likes)
+            const posts_liked=likes.posts_liked
+        let posts=[]
+        postsres.map((post,key)=>{
+            
+            const liked=posts_liked.includes(post._id)
+            post={...post._doc,liked}
+            posts.push(post)
+            
+
+        })
         return new NextResponse(JSON.stringify(posts),{status:200})
     }
     catch(err){
