@@ -19,7 +19,7 @@ const Login = () => {
   
   console.log(session.status)
   if(session.status==="loading"){
-    return(<p>Loading</p>)
+    return(<p>{Loading}</p>)
   }
 
   
