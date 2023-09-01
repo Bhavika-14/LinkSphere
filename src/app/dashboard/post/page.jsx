@@ -41,7 +41,7 @@ const AddPost = () => {
   
   return (
     <div className='flex flex-col'>
-       <Navbar name={session.data.user.name} />
+       <Navbar name={session.data?.user.name} />
        <div className='text-center sm:text-4xl text-2xl text-purple-700 font-bold mt-2 sm:mt-6'>
           Add Your Post
         </div>
