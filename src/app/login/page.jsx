@@ -1,5 +1,5 @@
 "use client"
-import React,{ useState } from 'react'
+import React,{ useEffect, useState } from 'react'
 
 import Link from 'next/link'
 import { getProviders, signIn, useSession } from "next-auth/react"
@@ -11,15 +11,18 @@ const Login = () => {
   const [password,setPassword]=useState("")
   const session=useSession("")
   const router=useRouter()
+
+  useEffect(()=>{
+    session.status==="authenticated" &&
+    router?.push("/dashboard")
+  },[session.status])
   
   console.log(session.status)
   if(session.status==="loading"){
     return(<p>Loading</p>)
   }
 
-  if(session.status==="authenticated"){
-    router?.push("/dashboard")
-  }
+  
 
 
   const handleLogin=(e)=>{
@@ -27,6 +30,7 @@ const Login = () => {
     signIn("credentials",{email,password})
 
   }
+  if(session.status==="unauthenticated"){
   return (
     <div className=''>
         <div className='py-8'>
@@ -56,6 +60,7 @@ const Login = () => {
         
     </div>
   )
+}
 }
 
 export default Login
