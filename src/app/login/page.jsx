@@ -16,7 +16,7 @@ const Login = () => {
     const router=useRouter()
     {session.status==="authenticated" &&
     router?.push("/dashboard")}
-  },[session.status])
+  },[session.status,router])
   
   console.log(session.status)
   if(session.status==="loading"){
