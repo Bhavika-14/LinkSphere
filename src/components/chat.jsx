@@ -13,7 +13,7 @@ const Chat = ({u_id,receiverID,chatID,name,u_name}) => {
 
     const getChat=async()=>{
       try{
-        const chatID=chatID
+        
         const res=await getDoc(doc(db,"chats",chatID))
 
         if(!res.exists()){
@@ -36,7 +36,7 @@ const Chat = ({u_id,receiverID,chatID,name,u_name}) => {
   }
      
 
-  ,[])
+  ,[chatID])
   
   
   

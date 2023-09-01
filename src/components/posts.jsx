@@ -10,7 +10,6 @@ const Posts = ({data,id,name}) => {
   useEffect(()=>{
     const getlikes=async()=>{
         console.log("start")
-        const id=id
         const res=await fetch(`http://localhost:3000/api/like/${id}`,{cache:"no-store"})
       
         const response=await res.json()
@@ -26,7 +25,7 @@ const Posts = ({data,id,name}) => {
         
         
     }
-  },[])
+  },[id])
 
  
 
