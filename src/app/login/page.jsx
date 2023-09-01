@@ -10,11 +10,12 @@ const Login = () => {
   const [email,setEmail]=useState("")
   const [password,setPassword]=useState("")
   const session=useSession("")
-  const router=useRouter()
+  
 
   useEffect(()=>{
-    session.status==="authenticated" &&
-    router?.push("/dashboard")
+    const router=useRouter()
+    {session.status==="authenticated" &&
+    router?.push("/dashboard")}
   },[session.status])
   
   console.log(session.status)
@@ -53,7 +54,7 @@ const Login = () => {
               <div className=' bg-purple-700 rounded-2xl font-bold my-4 text-center' >
                 <button type='submit' className='py-4 px-8 text-center'>Login</button>
               </div>
-              <div className=''>Don't have an account! <span className='text-blue-500'> <Link href="/signup">Signup</Link></span></div>
+              <div>Don't have an account! <span className='text-blue-500'> <Link href="/signup">Signup</Link></span></div>
             </form>
         </div>
        
