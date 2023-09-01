@@ -59,7 +59,7 @@ const Comments = ({post_id,user_id,user_name}) => {
         <div className='flex flex-col'>
         
             {data && data.length>0 && data.map((comment)=>{
-                return(<Comment comment={comment} />)
+                return(<Comment key={comment._id} comment={comment} />)
             })}
             {!data && 
             <div className='text-center my-4'> 
