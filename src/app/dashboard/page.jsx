@@ -50,7 +50,7 @@ const Dashboard =() => {
         
 
         
-        <Posts data={data} id={session.data.user.id} />
+        <Posts data={data} id={session.data.user.id} name={session.data.user.name} />
       </div>
   
     )

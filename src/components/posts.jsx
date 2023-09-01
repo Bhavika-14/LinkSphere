@@ -2,7 +2,7 @@
 import React,{ useState,useEffect } from 'react'
 import Post from './post'
 
-const Posts = ({data,id}) => {
+const Posts = ({data,id,name}) => {
   
   const [liked,setLiked]=useState([])
   
@@ -36,12 +36,12 @@ const Posts = ({data,id}) => {
   return (
     <div className='flex bg-black justify-center my-4'>
           <div className='flex flex-col sm:w-6/12 w-11/12'>
-            {data && data.map((post,key)=>{
+            {data && data.reverse().map((post,key)=>{
                 console.log(key)
                 const user_liked=liked.includes(post._id)
                 console.log(user_liked)
               return(
-                <Post post={post} liked={user_liked} id={id} />
+                <Post post={post} liked={user_liked} id={id} name={name} />
               )
             })}
   
