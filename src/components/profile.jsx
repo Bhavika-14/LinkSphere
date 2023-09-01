@@ -10,7 +10,7 @@ const Profile = ({u_id,name,id,email,u_name,chatID}) => {
     <div>
         {!showChat && u_id==id && 
           <div className="flex bg-black justify-center my-12 sm:my-32 rounded-lg p-2">
-            <div className='flex flex-col sm:w-6/12 w-11/12 p-4 bg-gray-900'>
+            <div className='flex flex-col sm:w-6/12 w-11/12 p-4 bg-gray-900 text-white'>
               <div>{name}</div>
               <div>Contact Info</div>
               <div>Email ID: {email}</div>
@@ -19,7 +19,7 @@ const Profile = ({u_id,name,id,email,u_name,chatID}) => {
 
         {!showChat && u_id!=id && 
           <div className="flex bg-black justify-center my-12 sm:my-32 rounded-lg p-2">
-            <div className='flex flex-col sm:w-6/12 w-11/12 p-4 bg-gray-900'>
+            <div className='flex flex-col sm:w-6/12 w-11/12 p-4 bg-gray-900 text-white'>
               <div className='mb-1 font-bold text-xl flex-wrap'>{name}</div>
               
               <div className='text-lg font-semibold'>Email ID:  {email}</div>

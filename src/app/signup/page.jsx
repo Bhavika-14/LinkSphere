@@ -78,11 +78,11 @@ const SignUp = () => {
                 {error && "Something Went Wrong"}
               </div>
               <div className='flex flex-col my-2'>
-                <label htmlFor='name' className='py-2'>Name</label>
+                <label htmlFor='name' className='py-2 text-white'>Name</label>
                 <input type='text'className='p-2 rounded-md' id='text' required placeholder='Enter your Name here' onChange={(e)=>setName(e.target.value)} />
               </div>
               <div className='flex flex-col my-2'>
-                <label htmlFor='email' className='py-2'>Email</label>
+                <label htmlFor='email' className='py-2 text-white'>Email</label>
                 <input type='email' className='p-2 rounded-md' id='email' required placeholder='Enter your Email here' onChange={(e)=>setEmail(e.target.value)} />
               </div>
               <div className='flex flex-col my-2'>
@@ -91,9 +91,9 @@ const SignUp = () => {
                 
               </div>
               <div className=' bg-purple-700 rounded-2xl font-bold my-6 text-center' >
-                <button type='submit' className='py-4 px-8 text-center'>Signup</button>
+                <button type='submit' className='py-4 px-8 text-center text-white'>Signup</button>
               </div>
-              <div className=''>Already have an account! <span className='text-blue-500'> <Link href="/login">Login</Link></span></div></form>
+              <div className='text-white'>Already have an account! <span className='text-blue-500'> <Link href="/login">Login</Link></span></div></form>
         </div>
        
         

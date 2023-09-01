@@ -52,7 +52,7 @@ const AddPost = () => {
                   
                   <div className='my-2'><label htmlFor='content' className='my-2'>Enter Your content</label></div>
                   <div ><textarea type='text' rows={10}  cols={40} placeholder='Enter your text here'  id="content" className='sm:w-full w-11/12 md:h-full h-3/4 cursor-text sm:my-2 my-1 rounded-md p-2' onChange={(e)=>setText(e.target.value)} /></div>
-                  <div><button className="bg-blue-800 rounded-lg py-2 px-4 sm:my-8 my-1" type='submit'>Add</button></div>
+                  <div><button className="bg-blue-800 rounded-lg py-2 px-4 sm:my-8 my-1 break-words" type='submit'>Add</button></div>
 
       
             </form>

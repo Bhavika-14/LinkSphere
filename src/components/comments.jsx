@@ -47,10 +47,10 @@ const Comments = ({post_id,user_id,user_name}) => {
   return (
     <div className='flex justify-center my-4'>
     <div className='flex flex-col sm:w-[75%] w-[90%]'>
-        <div className='text-center font-bold sm:text-2xl text-xl my-2'>Comments</div>
+        <div className='text-center font-bold sm:text-2xl text-xl my-2 text-white'>Comments</div>
         <div className='flex justify-center border-white border-2 flex-wrap shrink my-4 lg:px-10 md:px-16 px-1 sm:px-1 xs:border-none rounded-lg sm:py-2 py-2'>
             <form className='flex flex-col sm:w-[85%] w-[95%]' onSubmit={handleSubmit}>
-            <div><label className='mb-2'>Enter your comment</label></div>
+            <div><label className='mb-2 text-white'>Enter your comment</label></div>
             <div className=''><input type='text' placeholder='Enter your comment here' className='mb-4 p-2 rounded-lg w-[100%] bg-slate-900' value={text} onChange={(e)=>setText(e.target.value)} /></div>
             <div><button type='submit' className="bg-blue-800 text-center rounded-lg font-bold text-white py-2 px-4">Add</button></div>
             </form>
@@ -61,8 +61,8 @@ const Comments = ({post_id,user_id,user_name}) => {
             {data && data.length>0 && data.map((comment)=>{
                 return(<Comment key={comment._id} comment={comment} />)
             })}
-            {!data && 
-            <div className='text-center my-4'> 
+            {(!data || data.length==0) && 
+            <div className='text-center my-4 text-white text-xl'> 
                 There are no Comments.
 
             </div>}

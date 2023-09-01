@@ -43,19 +43,19 @@ const Login = () => {
               
               
               <div className='flex flex-col my-2'>
-                <label htmlFor='email' className='py-2'>Email</label>
+                <label htmlFor='email' className='py-2 text-white'>Email</label>
                 <input type='email' className='p-2 rounded-md' id='email' required placeholder='Enter your Email here' onChange={(e)=>setEmail(e.target.value)} />
               </div>
               <div className='flex flex-col my-2'>
-                <label htmlFor='password' className='py-2'>Password</label>
+                <label htmlFor='password' className='py-2 text-white'>Password</label>
                 <input type='password' className='p-2 rounded-md' id='password' required placeholder='Enter your Password here' onChange={(e)=>setPassword(e.target.value)} />
                 
               </div>
               
               <div className=' bg-purple-700 rounded-2xl font-bold my-4 text-center' >
-                <button type='submit' className='py-4 px-8 text-center'>Login</button>
+                <button type='submit' className='py-4 px-8 text-center text-white'>Login</button>
               </div>
-              <div>Don&#39;t have an account! <span className='text-blue-500'><Link href="/signup">Signup</Link></span></div>
+              <div className='text-white'>Don&#39;t have an account! <span className='text-blue-500'><Link href="/signup">Signup</Link></span></div>
             </form>
         </div>
        

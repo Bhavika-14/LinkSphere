@@ -15,7 +15,7 @@ export const Message = ({message,u_id,sender,name,u_name,time}) => {
     else{
         return(
             <div className=''>
-                <div className='bg-purple-900 text-white p-2 mb-2  w-fit max-w-[85%] sm:max-w-[60%] rounded-lg '>
+                <div className='bg-purple-900 text-white p-2 mb-2 break-words  w-fit max-w-[85%] sm:max-w-[60%] rounded-lg '>
                     {message}
                     <span className='pe-1 ps-3 text-vsm align-bottom text-gray-400 pb-1 break-normal'>{time}</span>
                 </div>
