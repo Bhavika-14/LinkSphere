@@ -36,12 +36,12 @@ const Posts = ({data,id,name}) => {
   return (
     <div className='flex bg-black justify-center my-4'>
           <div className='flex flex-col sm:w-6/12 w-11/12'>
-            {data && data.reverse().map((post,key)=>{
-                console.log(key)
+            {data && data.reverse().map((post)=>{
+                
                 const user_liked=liked.includes(post._id)
                 console.log(user_liked)
               return(
-                <Post post={post} liked={user_liked} id={id} name={name} />
+                <Post key={post._id} post={post} liked={user_liked} id={id} name={name} />
               )
             })}
   
