@@ -3,7 +3,7 @@ import UserProfile from "@/components/userprofile"
 
 async function getData(id){
  
-  const res=await fetch(`http://localhost:3000/api/user/${id}`,{cache:"no-store"})
+  const res=await fetch(`https://link-sphere.vercel.app/api/user/${id}`,{cache:"no-store"})
   if(res.status===200){
     const user=await res.json()
     let name=user.name

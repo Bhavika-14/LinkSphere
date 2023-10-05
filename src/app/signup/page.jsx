@@ -86,8 +86,8 @@ const SignUp = () => {
                 <input type='email' className='p-2 rounded-md' id='email' required placeholder='Enter your Email here' onChange={(e)=>setEmail(e.target.value)} />
               </div>
               <div className='flex flex-col my-2'>
-                <label htmlFor='password' className='py-2'>Password</label>
-                <input type='password' className='p-2 rounded-md' id='password' required placeholder='Enter your Password here' onChange={(e)=>setPassword(e.target.value)} />
+                <label htmlFor='password' className='py-2 text-white'>Password</label>
+                <input type='password' className='p-2 rounded-md text-white' id='password' required placeholder='Enter your Password here' onChange={(e)=>setPassword(e.target.value)} />
                 
               </div>
               <div className=' bg-purple-700 rounded-2xl font-bold my-6 text-center' >
