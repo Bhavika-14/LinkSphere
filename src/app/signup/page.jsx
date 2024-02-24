@@ -88,7 +88,6 @@ const SignUp = () => {
               <div className='flex flex-col my-2'>
                 <label htmlFor='password' className='py-2 text-white'>Password</label>
                 <input type='password' className='p-2 rounded-md text-white' id='password' required placeholder='Enter your Password here' onChange={(e)=>setPassword(e.target.value)} />
-                
               </div>
               <div className=' bg-purple-700 rounded-2xl font-bold my-6 text-center' >
                 <button type='submit' className='py-4 px-8 text-center text-white'>Signup</button>
